@@ -1,4 +1,4 @@
-// ********* Tut # 09 *********
+  // ********* Tut # 09 *********
 
 //#include <iostream>
 //
@@ -90,7 +90,7 @@
 //    }
 //return 0;
 //}
-
+ 
 
 
 
@@ -223,60 +223,60 @@
 
 // ********* Tut # 14 *********
 
-//#include<iostream>
-//using namespace std;
-//
-//// 1. Defining a Structure using typedef
-//typedef struct employee {
-//    int eId;          // 4 bytes
-//    char favChar;     // 1 byte
-//    float salary;     // 4 bytes
-//} ep;
-//
-//// 2. Defining a Union
-//union money {
-//    int rice;         // 4 bytes
-//    char car;         // 1 byte
-//    float pounds;     // 4 bytes
-//};
-//
-//int main() {
-//    // --- STRUCTURES DEMO --- 
-//    ep harry;
-//    struct employee shubham;
-//    struct employee rohanDas;
-//
-//    harry.eId = 1;
-//    harry.favChar = 'c';
-//    harry.salary = 1200000;
-//
-//    cout << "The value is " << harry.eId << endl;
-//    cout << "The value is " << harry.favChar << endl;
-//    cout << "The value is " << harry.salary << endl;
-//
-//    // --- UNIONS DEMO ---
-//    union money m1;
-//    m1.rice = 34;
-//    m1.car = 'c'; // This will overwrite 'rice' because memory is shared
-//    
-//    // If you print m1.rice here, it will show garbage/corrupted value 
-//    // because 'car' has overwritten that memory block.
-//    cout << m1.car << endl; 
-//
-//    // --- ENUMS DEMO ---
-//    enum Meal { breakfast, lunch, dinner };
-//    
-//    Meal m1Meal = lunch;
-//    cout << m1Meal << endl; // Prints 1 (since lunch corresponds to index 1)
-//    
-//    // You can also declare them directly like this:
-//    // enum Meal { breakfast, lunch, dinner };
-//    // cout << breakfast << endl;
-//    // cout << lunch << endl;
-//    // cout << dinner << endl;
-//
-//    return 0;
-//}
+#include<iostream>
+using namespace std;
+
+// 1. Defining a Structure using typedef
+typedef struct employee {
+    int eId;          // 4 bytes
+    char favChar;     // 1 byte
+    float salary;     // 4 bytes
+} ep;
+
+// 2. Defining a Union
+union money {
+    int rice;         // 4 bytes
+    char car;         // 1 byte
+    float pounds;     // 4 bytes
+};
+
+int main() {
+    // --- STRUCTURES DEMO --- 
+    ep harry;
+    struct employee shubham;
+    struct employee rohanDas;
+
+    harry.eId = 1;
+    harry.favChar = 'c';
+    harry.salary = 1200000;
+
+    cout << "The value is " << harry.eId << endl;
+    cout << "The value is " << harry.favChar << endl;
+    cout << "The value is " << harry.salary << endl;
+
+    // --- UNIONS DEMO ---
+    union money m1;
+    m1.rice = 34;
+    m1.car = 'c'; // This will overwrite 'rice' because memory is shared
+    
+    // If you print m1.rice here, it will show garbage/corrupted value 
+    // because 'car' has overwritten that memory block.
+    cout << m1.car << endl; 
+
+    // --- ENUMS DEMO ---
+    enum Meal { breakfast, lunch, dinner };
+    
+    Meal m1 = lunch;
+    cout << m1 << endl; // Prints 1 (since lunch corresponds to index 1)
+    
+    // You can also declare them directly like this:
+    // enum Meal { breakfast, lunch, dinner };
+    // cout << breakfast << endl;
+    // cout << lunch << endl;
+    // cout << dinner << endl;
+
+    return 0;
+}
 
 
 
@@ -298,8 +298,7 @@ int sum(int, int); // --> Acceptable
 // void g(void); // --> Acceptable
 void g(); // --> Acceptable
 
-int sum(int a, int b){
-    // Formal Parameters a and b will take values from actual parameters num1 and num2.
+int sum(int a, int b){    // Formal Parameters a and b will take values from actual parameters num1 and num2.
     int c = a + b;
     return c;
 }

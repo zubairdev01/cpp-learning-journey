@@ -1,64 +1,44 @@
-//#include <iostream>
-//#include <string>
+// ********* Tut # 16 *********
+
+//#include<iostream>
 //using namespace std;
 //
-//int main() {         // Data Type and challanges
-//    string userTea;
-//    int teaCups;
-//
-//    cout << "Enter your favorite tea: ";
-//    getline(cin, userTea);
-//
-//    cout << "How many cups would you like? ";
-//    cin >> teaCups;
-//
-//    cout << "You want " << teaCups << " cups of " << userTea << "." << endl;
-//    
-//    
-//    
-//    int basePrice = 100;
-//    float increaseRate = 0.10f; // 10% increase
-//    
-//    // Explicit type casting
-//    double finalPrice = basePrice + (basePrice * increaseRate);
-//    
-//    cout << "New Price: " << (int)finalPrice << endl;
-//	return 0;
+//// This will not swap a and b (Call by Value)
+//void swap(int a, int b){ 
+//    int temp = a;
+//    a = b;
+//    b = temp;
 //}
-
-
-
-
-
-
-
-// Operators and challenges in cpp
-
-
-//#include <iostream>
-//using namespace std;
 //
-//int main() {
-//    int cups;
-//    double pricePerCup = 2.5;
-//    double discount = 0.0;
+//// Call by reference using pointers
+//void swapPointer(int *a, int *b){ 
+//    int temp = *a;
+//    *a = *b;
+//    *b = temp;
+//}
 //
-//    cout << "Enter the number of tea cups: ";
-//    cin >> cups;
+//// Call by reference using C++ reference variables
+////void swapReferenceVar(int &a, int &b){ 
+//int & swapReferenceVar(int &a, int &b){  
 //
-//    if (cups > 20) {
-//        discount = 0.20; // 20% discount
-//    } else if (cups >= 10 && cups <= 20) {
-//        discount = 0.10; // 10% discount
-//    } else {
-//        discount = 0.0;  // No discount
-//    }
+//    int temp = a;
+//    a = b;
+//    b = temp;
+//    return a;
+//}
 //
-//    double totalPrice = (cups * pricePerCup);
-//    totalPrice -= (totalPrice * discount);
-//
-//    cout << "Total price after discount is: " << totalPrice << endl;
-//
+//int main(){
+//    int x = 4, y = 5;
+////    cout<<"The sum of 4 and 5 is "<<sum(a,b);
+//    cout << "The value of x is " << x << " and the value of y is " << y << endl;
+//    
+//    // swap(x, y); // This will NOT swap x and y because it uses call by value
+//    // swapPointer(&x, &y); // This WILL swap x and y using pointer references
+//    
+//    swapReferenceVar(x, y) = 766; // This WILL swap x and y using C++ reference variables
+//    
+//    cout << "The value of x is " << x << " and the value of y is " << y << endl;
+//    
 //    return 0;
 //}
 
@@ -66,127 +46,160 @@
 
 
 
+
+
+
+
+// ********* Tut # 17 *********
+// Inline Functions, Default Arguments & Constant Arguments
+
+#include<iostream>
+using namespace std;
+// do not use inline function when recursion happened (also static)
+// Inline function: requests the compiler to replace the function call with the actual code
+inline int product(int a, int b){
+    // Not recommended to use with static variables, loops, or switch statements
+    
+	return a * b;
+}
+
+// Function demonstrating a static variable
+int func(int a, int b){
+    // Static variable is initialized only once; its value is retained across function calls
+    static int c = 0; 
+    c = c + 1; // Increments every time the function is run
+    return a * b + c;
+}
+
+// Function using Default Arguments (factor = 1.04 is a default argument)
+// Note: Default arguments should always be written on the rightmost side
+float moneyReceived( int currentBankBalance, float factor = 1.04){
+    return currentBankBalance * factor;
+}
+
+// Function using Constant Arguments (const keyword prevents the function from modifying the variables)
+// int strlen(const char *p){
+//    
+ }
+
+int main(){
+    int a, b;
+    // cout << "Enter the value of a and b: ";
+    // cin >> a >> b;
+    // cout << "The product of a and b is " << product(a, b) << endl;
+    // cout << "The product of a and b is " << product(a, b) << endl;
+    // cout << "The product of a and b is " << product(a, b) << endl;
+    // cout << "The product of a and b is " << product(a, b) << endl;
+
+    int money = 100000;
+    cout << "If you have " << money << " Rs in your bank account, you will receive " << moneyReceived(money) << " Rs after 1 year." << endl;
+    
+    // For VIP persons, a different factor can be passed
+    cout << "For VIP: If you have " << money << " Rs in your bank account, you will receive " << moneyReceived(money, 1.1) << " Rs after 1 year." << endl;
+    
+    return 0;
+} 
+
+
+
+
+
+
+
+
+
+// ********* Tut # 18 *********
+
 //#include<iostream>
 //using namespace std;
-//int main() {
-//	int choice;
-//	double price = 0.0;
-//	
-//	cout<<"Select you tea type: /n";
-//	cout<<"Lemon tea/n";
-//	cout<<"Green Tea/n";
-//	cout<<"Simple elachi tea/n";
-//	cout<<"ENter your choice in numbers: ";
-//	cin>>choice;
-//	
-//	switch (choice) {
-//		case 1:
-//			price = 2.0;
-//			cout<<"You select Lemon tea : Price: $" << price << endl;
-//			break;
-//			
-//			case 2:
-//			price = 3.0;
-//			cout<<"You select green tea : Price: $" << price << endl;
-//			break;
-//			
-//			case 3:
-//			price = 2.0;
-//			cout<<"You select Simple Elachi tea : Price: $" << price << endl;
-//			break;
-//			
-//			default:
-//				cout<< "Invalid Choice" << endl;
-//	}
-//	return 0;
-//}
-
-
-
-
-
-
-
-//#include <iostream>
-//using namespace std;
 //
-//int main() {
-//string teaTypes[] = {"Oolong tea", "Orange tea", "Green tea", "Black tea", "Lemon tea"};
-//for (int i = 0; i < 5; i++) {
-//if (teaTypes[i] == "Green tea") {
-//cout << "Skips " << teaTypes[i] << endl;
-//continue;
-//}
-//cout << "Brewing " << teaTypes[i] << "..." << endl;
-//}
-//return 0;
-//}
-
-
-
-
-
-
-//Functions in C++
-//Function Patameter Def and Dec
-//#include <iostream>
-//using namespace std;
-//
-//int checkTemperature(int temperature);
-//return temperature;
-//
-//// Function Decleration
-//void serveChai(int cups);
-//
-//void makeChai() {
-//	cout << "Boiling water, adding tea leaves, straining."
+//// Recursive function to calculate the Fibonacci sequence at position n
+//int fib(int n){
+//    if(n < 2){
+//        return 1;
+//    }
+//    return fib(n-2) + fib(n-1);
 //}
 //
-//void serveChai(string teaType = "Masala Tea) {    // thats called function overloading and differntiate on the behafe of the parameter you passed 
-//	int cups = 4;
-//	cout << "Serving " << teaType << endl;
+//// Recursive function to calculate the factorial of a number n
+//int factorial(int n){
+//    // Base condition to stop recursion
+//    if(n <= 1){
+//        return 1;
+//    }
+//    return n * factorial(n - 1);
 //}
 //
-//
-//int main() {
-//	let temp = checkTemperature(50);
-////	cout<<temp;
-////	makeChai();  // calling a function
-////	serveChai(3);
-//
-//	serveChai("Lemon tea");
-//	return 0;
-//} 
-//// Function Defination
-//void serveChai(int cups) {
-//	cout<<"Serving " << cups << " of chai; ";
+//int main(){
+//    int a;
+//    cout << "Enter a number" << endl;
+//    cin >> a;
+//    
+//    // cout << "The factorial of a is " << factorial(a) << endl;
+//    cout << "The term in fibonacci sequence at position " << a << " is " << fib(a) << endl;
+//    
+//    return 0;
 //}
+//Key Concepts Covered in the Video:Recursive Function: A function that calls itself to solve smaller instances of the same problem.Base Condition: A crucial stopping condition (e.g., if(n <= 1) for factorials) that prevents infinite recursion and stack overflow errors.Factorial Example (factorial): Computes $n!$ by multiplying $n$ with the factorial of $(n - 1)$.Fibonacci Example (fib): Computes the sum of the two preceding numbers in the sequence (fib(n-2) + fib(n-1)).
 
 
 
 
-//Pass by value  &  Pass by Ref
-#include <iostream>
+
+
+
+
+
+
+
+
+// ********* Tut # 19 *********
+
+#include<iostream>
 using namespace std;
 
-// void pourChai(int &cups) {  // call by ref
-
-//void pourChai(int cups) {
-//	cups = cups + 5;
-//	cout << "Poured cups: " << cups << endl;
-//}
-int main() {
-//	int cups = 2; 
-//	pourChai(cups);
-//	cout<<"Total cups are " << cups << endl;
-
-//	lamda
-	auto preparedChai = [](int cups) {
-		cout << "Preparing " << cups << " cups of tea" << endl;
-	};
-	preparedChai(4);
-	return 0;
+// Calculates the sum of 2 numbers
+int add(int a, int b){
+    cout << "Using function with 2 arguments" << endl;
+    return a + b;
 }
+
+// Calculates the sum of 3 numbers (Overloaded function with same name 'add')
+int add(int a, int b, int c){
+    cout << "Using function with 3 arguments" << endl;
+    return a + b + c;
+}
+
+// Calculate the volume of a cylinder (radius r, height h)
+int volume(double r, int h){
+    return (3.14 * r * r * h);
+}
+
+// Calculate the volume of a cube (side a)
+int volume(int a){
+    return (a * a * a);
+}
+
+// Calculate the volume of a rectangular box (length l, breadth b, height h)
+int volume(int l, int b, int h){
+    return (l * b * h);
+}
+
+int main(){
+    // Testing function overloading with add
+    cout << "The sum of 3 and 6 is " << add(3, 6) << endl;
+    cout << "The sum of 3, 7 and 6 is " << add(3, 7, 6) << endl;
+    
+    // Testing function overloading with volume calculations
+    cout << "The volume of cylinder of radius 3 and height 7 is " << volume(3, 7) << endl;
+    cout << "The volume of cube of side 3 is " << volume(3) << endl;
+
+    cout << "The volume of cuboid of 3, 7 and 6 is " << volume(3, 7, 6) << endl;
+    
+    return 0;
+}
+
+
 
 
 
